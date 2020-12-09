@@ -8,6 +8,9 @@ interface accessModel {
 }
 
 export default class Custom {
+    editable: boolean = true;
+    name: string = 'Custom';
+
     folders: accessModel = {
         create: false,
         update: false,

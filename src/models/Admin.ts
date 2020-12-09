@@ -1,6 +1,7 @@
 import User from "./User";
 
 export default class Admin extends User{
+    name: string = 'Admin';
     constructor() {
         super();
         this.folders.move = true;

@@ -1,6 +1,9 @@
 import Custom from "./Custom";
 
 export default class Member extends Custom{
+    editable = false;
+    name: string = 'Member';
+
     constructor() {
         super();
         this.folders.view = true;

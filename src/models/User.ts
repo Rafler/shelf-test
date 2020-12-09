@@ -2,6 +2,7 @@ import Member from "./Member";
 
 
 export default class User extends Member {
+    name: string = 'User';
     constructor() {
         super();
         this.folders.create = true;
