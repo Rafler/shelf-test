@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, FC} from 'react';
 import {Select} from "../Select/Select";
 import Admin from "../../models/Admin";
 import User from "../../models/User";
@@ -7,14 +7,24 @@ import Custom from "../../models/Custom";
 import {Checkbox} from "../Checkbox/Checkbox";
 import './RoleSelector.scss';
 
-export const RoleSelector = ({}) => {
+interface RoleSelectorProps {
+    onSelect: (role:  Custom) => void;
+    onChange: (selected: Custom) => void,
+    onSubmit: (roles: (Custom)[]) => void
+}
+
+export const RoleSelector: FC<RoleSelectorProps> = ({onSelect, onChange, onSubmit}) => {
     const [roles, setRoles] = useState([new Admin(), new User(), new Member(), new Custom()]);
     const [selected, setSelected] = useState(roles[0]);
     const selectValues = roles.map(role => role.name);
 
     const handleSelectChange = (roleName: string) => {
         const role = roles.find(role => role.name === roleName);
-        if (role) setSelected(role);
+
+        if (role) {
+            setSelected(role);
+            onSelect(role);
+        }
     };
 
 
@@ -25,6 +35,8 @@ export const RoleSelector = ({}) => {
             const newRoles = roles.map(role => role.name === 'Custom' ? selected : role);
             setRoles(newRoles);
         }
+
+        onSubmit(roles);
     };
 
     return (
@@ -44,6 +56,8 @@ export const RoleSelector = ({}) => {
                                                 [key]: value,
                                             }
                                         });
+
+                                        onChange(selected);
                                     };
                                     const [name, value] = access;
 
@@ -66,6 +80,8 @@ export const RoleSelector = ({}) => {
                                                 [key]: value,
                                             }
                                         });
+
+                                        onChange(selected);
                                     };
                                     const [name, value] = access;
 
