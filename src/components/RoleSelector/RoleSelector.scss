@@ -1,0 +1,65 @@
+.form {
+  background: #F5F5F5;
+  padding: 10px;
+  text-align: left;
+
+  &__submit {
+    width: 220px;
+    height: 40px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 20px;
+    border: 0;
+    padding: 0;
+    background: #F86B3B;
+    margin-top: 50px;
+    cursor: pointer;
+    transition: opacity 0.7s ease;
+    outline: none;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__content {
+    padding: 20px;
+    width: 100%;
+    background: #fff;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: #7D7F86;
+
+    &__data {
+      width: 100%;
+
+      &:first-of-type {
+        border-bottom: 1px solid #F5F5F5;
+        padding-bottom: 10px;
+      }
+
+      &__title {
+        font-size: 15px;
+      }
+
+      &__checkboxes {
+        display: flex;
+        flex-flow: row wrap;
+
+        @media screen and (max-width: 650px){
+          width: 315px;
+        }
+
+        @media screen and (max-width: 330px){
+          width: 210px;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

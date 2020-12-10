@@ -1,0 +1,31 @@
+.checkbox {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  min-width: 85px;
+
+  &__name {
+    margin-left: 10px;
+
+    &:first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  &__input {
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+
+    &.checked {
+      background-image: url('../../images/checked.png');
+    }
+
+    &.unchecked {
+      background-image: url('../../images/unchecked.png');
+    }
+  }
+}

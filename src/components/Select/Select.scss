@@ -1,0 +1,70 @@
+.select {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  position: relative;
+
+  &__name {
+    font-size: 15px;
+    margin: 0 10px 0 0;
+    padding: 0;
+  }
+
+  &__field {
+    cursor: pointer;
+    box-sizing: border-box;
+    border: 1px solid #F5F5F5;
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    padding: 10px;
+    transition: opacity 0.7s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__arrow {
+      width: 10px;
+      height: 7px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url('../../images/arrow.svg');
+      transition: transform 0.3s ease;
+
+      &.opened {
+        transform: rotate(180deg);
+      }
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    position: absolute;
+    box-sizing: border-box;
+    top: 30px;
+    right: 0;
+    background: #fff;
+    width: 120px;
+    border: 1px solid #F5F5F5;
+    border-top: 0;
+
+    &__option {
+      box-sizing: border-box;
+      padding: 10px;
+      border-bottom: 1px solid #F5F5F5;
+      transition: background-color .3s, color, ease;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #F86B3B;
+        color: #fff;
+      }
+    }
+  }
+}
